@@ -40,6 +40,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="css/app-dark.css" id="darkTheme">
+    <script type="text/javascript" src="js/productList.js"></script>
 </head>
 <body>
 	<div class="col-md-10 my-4" style="text-align: center; align-items: center;">
@@ -60,7 +61,7 @@
 						</tr>
 					</thead>
 	<%
-		for(int i=1;i<list.size();i++){
+		for(int i=0;i<list.size();i++){
 			product = list.get(i);
 			
 			int product_number = product.getProduct_number();
@@ -115,7 +116,8 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dr1">
                                   <a class="dropdown-item" href="adminIndex.jsp?pages=productEdit&product_number=<%= product_number %>">Edit</a>
-                                  <a class="dropdown-item" href="adminIndex.jsp?pages=productDelete&product_number=<%= product_number %>">Remove</a>
+                                  <input type="hidden" value="<%= product_number %>" id="p_num">
+                                  <a class="dropdown-item" href="#" onclick="exitCheck()">Remove</a><!-- href="adminIndex.jsp?pages=productDelete&product_number=<\%= product_number \%>"   -->
                                 </div>
                               </div>
                             </td>
